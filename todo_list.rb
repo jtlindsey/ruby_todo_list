@@ -12,37 +12,36 @@ class TodoList
     todo_items.push(TodoItem.new(name))
   end
 
-  def remove_item(name)
-    x = ""
+  def find_item(name, action="")
+    found_item = "Item not found"
     todo_items.each do |item|  
       if item.name == name
-        todo_items.delete(item)
-        x = "Item Removed."
+        case action
+        when 'Delete'
+          todo_items.delete(item)
+          found_item = item.name
+          puts "#{name} removed successfully."
+        when 'Mark Complete'
+          # complete
+        when "other"
+          #do
+        end
+        found_item = item.name
       end
     end
-    puts x == "Item Removed." ? "Item Removed." : "Item Not Found.";
+
+    if found_item == "Item not found"
+      puts "'#{name}' not found."      
+    end
   end
 
-  # def remove_item(name)
-  #   index = 0
-  #   found = false
-  #   todo_items.each do |todo_item|
-  #     if todo_item.name == name
-  #       found = true
-  #     end
-  #     if found
-  #       break
-  #     else
-  #       index += 1
-  #     end
-  #   end
-  #   if found
-  #     todo_items.delete_at(index)
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
+  def remove_item(name)
+    find_item(name, 'Delete')
+  end
+
+  def mark_complete(name)
+    find_item(name, 'Mark Complete')
+  end
 
 end
 
