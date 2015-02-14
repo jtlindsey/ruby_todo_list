@@ -8,3 +8,9 @@ class TodoList
     @todo_item = []
   end
 end
+
+todo_list = TodoList.new("Homework")
+todo_item = TodoItem.new("read math chapter 4")
+
+puts todo_list.inspect
+puts todo_item.inspect
