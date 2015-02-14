@@ -5,15 +5,52 @@ class TodoList
 
   def initialize(name)
     @name = name
-    @todo_item = []
+    @todo_items = []
   end
+
+  def add_item(name)
+    todo_items.push(TodoItem.new(name))
+  end
+
+  def remove_item(name)
+    x = ""
+    todo_items.each do |item|  
+      if item.name == name
+        todo_items.delete(item)
+        x = "Item Removed."
+      end
+    end
+    puts x == "Item Removed." ? "Item Removed." : "Item Not Found.";
+  end
+
+  # def remove_item(name)
+  #   index = 0
+  #   found = false
+  #   todo_items.each do |todo_item|
+  #     if todo_item.name == name
+  #       found = true
+  #     end
+  #     if found
+  #       break
+  #     else
+  #       index += 1
+  #     end
+  #   end
+  #   if found
+  #     todo_items.delete_at(index)
+  #     return true
+  #   else
+  #     return false
+  #   end
+  # end
+
 end
 
 todo_list = TodoList.new("Homework")
-todo_item = TodoItem.new("read math chapter 4")
+todo_list.add_item("math")
+todo_list.add_item("history")
 
-puts todo_item
-puts todo_item.mark_complete!
-puts todo_item
-puts todo_item.mark_incomplete!
-puts todo_item
+puts todo_list.inspect
+todo_list.remove_item("math")
+
+puts todo_list.inspect
