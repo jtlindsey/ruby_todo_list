@@ -12,5 +12,8 @@ end
 todo_list = TodoList.new("Homework")
 todo_item = TodoItem.new("read math chapter 4")
 
-puts todo_list.inspect
-puts todo_item.inspect
+puts todo_item
+puts todo_item.mark_complete!
+puts todo_item
+puts todo_item.mark_incomplete!
+puts todo_item
