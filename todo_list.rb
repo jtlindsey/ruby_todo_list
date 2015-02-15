@@ -56,10 +56,10 @@ class TodoList
 
 end
 
-todo_list = TodoList.new("Homework")
-todo_list.add_item("math")
-todo_list.add_item("history")
-todo_list.add_item("art")
-todo_list.mark_complete("history")
+# todo_list = TodoList.new("Homework")
+# todo_list.add_item("math")
+# todo_list.add_item("history")
+# todo_list.add_item("art")
+# todo_list.mark_complete("history")
 
-puts todo_list.print_list
+# puts todo_list.print_list
