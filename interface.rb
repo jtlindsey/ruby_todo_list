@@ -6,20 +6,6 @@ class Interface
     control_loop('2')
   end
 
-  # def instructions
-  #   puts 'Please select from the following:'
-  #   puts '-' * 40
-  #   puts 'Description'.ljust(30)                + 'Command'.rjust(10)
-  #   puts 'Instructions'.ljust(30,'.')           + '1'.rjust(10)
-  #   puts 'Create List'.ljust(30,'.')            + '2'.rjust(10)
-  #   puts 'Add Item'.ljust(30,'.')               + '3'.rjust(10)
-  #   puts 'Delete Item'.ljust(30,'.')            + '4'.rjust(10)
-  #   puts 'Mark Item as Complete'.ljust(30,'.')  + '5'.rjust(10)
-  #   puts 'Print List'.ljust(30,'.')             + '6'.rjust(10)
-  #   puts 'Exit'.ljust(30,'.')                   + 'x'.rjust(10)
-  #   puts '-' * 40    
-  # end
-
   def instructions
     puts 'Please select from the following:'
     puts '-' * 40
