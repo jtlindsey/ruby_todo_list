@@ -12,6 +12,7 @@ class TodoList
 
   def add_item(name)
     todo_items.push(TodoItem.new(name))
+    puts "'#{name}' added."
   end
 
   def find_item(name, action="")
