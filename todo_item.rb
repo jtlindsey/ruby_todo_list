@@ -25,5 +25,4 @@ class TodoItem
   def mark_incomplete!
     @complete = false
   end
-
 end
