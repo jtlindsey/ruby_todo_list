@@ -2,22 +2,26 @@ require "./todo_list.rb"
 
 class Interface
   def initialize
+    @menu_choices = [
+      'Menu',
+      'Create List',
+      'Add Item',
+      'Delete Item',
+      'Mark Item as Complete',
+      'Print List'
+    ]
     @todo_list = TodoList.new("")
     control_loop('2')
   end
 
-  def instructions
-    puts 'Please select from the following:'
-    puts '-' * 40
-    puts '* '+'Command/Description'.center(36)          + ' *'
-    puts '* '+'1 -Instructions'.ljust(30,'.')           + '*'.rjust(8)
-    puts '* '+'2 -Create List'.ljust(30,'.')            + '*'.rjust(8)
-    puts '* '+'3 -Add Item'.ljust(30,'.')               + '*'.rjust(8)
-    puts '* '+'4 -Delete Item'.ljust(30,'.')            + '*'.rjust(8)
-    puts '* '+'5 -Mark Item as Complete'.ljust(30,'.')  + '*'.rjust(8)
-    puts '* '+'6 -Print List'.ljust(30,'.')             + '*'.rjust(8)
-    puts '* '+'x -Exit'.ljust(30,'.')                   + '*'.rjust(8)
-    puts '-' * 40    
+  def menu
+    i=0
+    puts "\nPlease select from the following:\n" + '-' * 40
+    puts '* '+'Command/Description'.center(36) + ' *'
+    @menu_choices.each do |choice| i+=1;
+      puts '* ' + i.to_s + ' ' + choice.ljust(30,'.') + '*'.rjust(6)
+    end
+    puts '* '+'x Exit'.ljust(32,'.') + '*'.rjust(6) + "\n" +'-' * 40 
   end
 
   def control_loop(start=nil)
@@ -32,7 +36,7 @@ class Interface
       end
 
       case user_choice
-      when '1' then instructions
+      when '1' then menu
       when '2'
         puts "Enter a name of your list."
         user_input = gets.chomp
@@ -54,7 +58,7 @@ class Interface
       when 'x' then goodbye
       else
         puts 'Invalid Choice.'
-        instructions
+        menu
       end
 
       break if user_choice == 'x'
