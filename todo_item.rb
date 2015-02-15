@@ -18,7 +18,7 @@ class TodoItem
     @complete
   end
 
-  def mark_complete! #modify internally
+  def mark_complete!
     @complete = true
   end
 

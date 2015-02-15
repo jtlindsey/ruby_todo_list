@@ -40,18 +40,10 @@ class TodoList
   end
 
   def print_list
-    complete_items = [], incomplete_items = []
-
+    complete_items = []; incomplete_items = []
     todo_items.each do |todo_item|
-
-      #complete_items << todo_item if todo_item.complete?
-      #incomplete_items << todo_item unless todo_item.complete? 
-      if todo_item.complete?
-        complete_items << todo_item
-      else
-        incomplete_items << todo_item
-      end
-
+      complete_items << todo_item if todo_item.complete?
+      incomplete_items << todo_item unless todo_item.complete?
     end
 
     puts "\nThe '#{name}' List - all items"
@@ -65,10 +57,10 @@ class TodoList
 
 end
 
-todo_list = TodoList.new("Homework")
-todo_list.add_item("math")
-todo_list.add_item("history")
-todo_list.add_item("art")
-todo_list.mark_complete("history")
+# todo_list = TodoList.new("Homework")
+# todo_list.add_item("math")
+# todo_list.add_item("history")
+# todo_list.add_item("art")
+# todo_list.mark_complete("history")
 
-puts todo_list.print_list
+# puts todo_list.print_list

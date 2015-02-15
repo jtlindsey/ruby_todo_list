@@ -2,7 +2,7 @@ require "./todo_list.rb"
 
 class Interface
   def initialize
-    @todo_list = TodoList.new("Homework")
+    @todo_list = TodoList.new("")
     control_loop('2')
   end
 
@@ -62,10 +62,10 @@ class Interface
   end
 
   def goodbye
-    puts "Thank you for using the Ruby To-do list!\nGoodbye!\n\n"
+    puts "Thank you for using #{$program_name}!\nGoodbye.\n\n"
   end
 
 end
-
-puts "\n* The Ruby To-do List *"
+$program_name = "The Ruby To-do List"
+puts "\n* #{$program_name} *"
 Interface.new
