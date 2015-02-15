@@ -1,4 +1,4 @@
-require './todo_list.rb'
+require "./todo_list.rb"
 
 class Interface
   def initialize
@@ -33,22 +33,24 @@ class Interface
 
       case user_choice
       when '1' then instructions
-      when '2' #create list
+      when '2'
         puts "Enter a name of your list."
         user_input = gets.chomp
         @todo_list = TodoList.new(user_input)
-        puts "'#{user_input}' created."
-      when '3' #add item
+        puts "'#{user_input}' list created."
+      when '3'
         puts "Enter the name of item you want added to your list."
         user_input = gets.chomp
         @todo_list.add_item(user_input)
-
-      when '4' #delete item
-
-      when '5' #mark item as complete
-
-      when '6' #print list
-
+      when '4'
+        puts "Enter the name of item to remove."
+        user_input = gets.chomp
+        @todo_list.remove_item(user_input)
+      when '5'
+        puts "Enter the name of the item to mark complete"
+        user_input = gets.chomp
+        @todo_list.mark_complete(user_input)
+      when '6' then puts @todo_list.print_list
       when 'x' then goodbye
       else
         puts 'Invalid Choice.'
