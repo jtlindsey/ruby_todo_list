@@ -1,11 +1,13 @@
 require "./todo_item.rb"
 
 class TodoList
-  attr_reader :name, :todo_items
+  attr_reader :name, :todo_items, :complete_items, :incomplete_items
 
   def initialize(name)
     @name = name
     @todo_items = []
+    @complete_items = []
+    @incomplete_items = []
   end
 
   def add_item(name)
@@ -27,7 +29,6 @@ class TodoList
         end
       end
     end
-
     puts "'#{name}' not found." if found_item == false
   end
 
@@ -39,15 +40,43 @@ class TodoList
     find_item(name, 'Mark Complete')
   end
 
+  def print_list
+    todo_items.each do |todo_item|
+      complete_items << todo_item if todo_item.complete?
+      incomplete_items << todo_item unless todo_item.complete?
+    end
+    puts "\n#{name} List - all items"
+    puts "-" * 30
+    puts "Incomplete Items"
+    incomplete_items.each {|item| puts item}    
+    puts "\nComplete Items"
+    complete_items.each {|item| puts item}
+    puts "-" * 30
+  end
+
+  # def print_list(kind='all')
+  #   puts "#{name} List - #{kind} items"
+  #   puts "-" * 30
+  #   todo_items.each do |todo_item|
+  #     case kind
+  #     when 'all'
+  #       puts todo_item
+  #     when 'complete'
+  #       puts todo_item if todo_item.complete?
+  #     when 'incomplete'
+  #       puts todo_item unless todo_item.complete?
+  #     end
+  #   end
+  #   puts "\n"
+  # end
+
 end
 
 todo_list = TodoList.new("Homework")
 todo_list.add_item("math")
 todo_list.add_item("history")
-
-puts todo_list.inspect
-
+todo_list.add_item("art")
 todo_list.mark_complete("history")
-todo_list.remove_item("math")
 
-puts todo_list.inspect
+
+puts todo_list.print_list

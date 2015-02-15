@@ -8,10 +8,8 @@ class TodoItem
 
   def to_s
     if complete?
-      puts "Complete Items\n"
       "[X] #{name}"
     else
-      puts "Incomplete Items\n"
       "[ ] #{name}"
     end
   end
